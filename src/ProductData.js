@@ -1,5 +1,5 @@
 const ProductData = {
-    title: 'FitBit 19 - The smartest Watch',
+    title: 'FitBit 19 - The Smartest Watch',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore .',
     colorOptions: [
         {
@@ -20,3 +20,5 @@ const ProductData = {
         }
     ]
 }
+
+export default ProductData;
