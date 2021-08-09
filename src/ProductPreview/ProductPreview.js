@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './ProductPreview.module.css';
 
-
 const ProductPreview = (props) =>{
     const currentHour = new Date().getHours()> 9 ? new Date().getHours() : '0'+ new Date().getHours();
     const currentMinutes = new Date().getMinutes()> 9 ? new Date().getMinutes() : '0'+ new Date().getMinutes();
@@ -18,7 +17,7 @@ const ProductPreview = (props) =>{
                 </div>
                 :
                 <div className={classes.TimeSection}>
-                <p>{`${currentHour}:${currentMinutes}`}</p>
+                    <p>{`${currentHour}:${currentMinutes}`}</p>
                 </div>
             }
             
