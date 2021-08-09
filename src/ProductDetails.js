@@ -3,18 +3,23 @@ import classes from './ProductDetails.module.css';
 import ProductData from './ProductData';
 
 const ProductDetails = (props) =>{
-    const currentHour = new Date().getHours()> 9 ? new Date().getHours() : '0'+ new Date().getHours();
-    const currentMinutes = new Date().getMinutes()> 9 ? new Date().getMinutes() : '0'+ new Date().getMinutes();
+    const colorOptions = props.data.colorOptions.map((item, pos) =>{
+        const classArr = [classes.ProductImage]
+        if(pos == 0){
+            classArr.push(classes.SelectedProductImage);
+        }
+        return(
+            <img key={pos} className={classArr.join(' ')} src={item.imageUrl} alt={item.styleName} /> 
+    );
+    })
     return(
         <div className={classes.ProductData}>
-            <h1 className={classes.ProductTitle} >{ProductData.title} </h1>
-            <p className={classes.ProductDescription}>{ProductData.description}</p>
+            <h1 className={classes.ProductTitle} >{props.data.title} </h1>
+            <p className={classes.ProductDescription}>{props.data.description}</p>
             <h3 className={classes.SectionHeading}>Select Color</h3>
             <div >
-              <img className={[classes.ProductImage, classes.SelectedProductImage].join(' ')} src="https://imgur.com/iOeUBV7.png" alt="Black colored Watch" />
-              <img className={classes.ProductImage} src="https://imgur.com/PTgQlim.png" alt="Red colored Watch" />
-              <img className={classes.ProductImage} src="https://imgur.com/Mplj1YR.png" alt="Blue colored Watch" />  
-              <img className={classes.ProductImage} src="https://imgur.com/xSIK4M8.png" alt="Purple colored Watch" /> 
+              {colorOptions}
+              
               <h3 className={classes.SectionHeading}>Features</h3>
               <div>
                 <button className={[classes.FeatureItem, classes.SelectedFeatureItem].join(' ')}>Time</button>
@@ -28,4 +33,4 @@ const ProductDetails = (props) =>{
     );
 }
 
-export default ProductDetails;
+export default ProductDetails; 
